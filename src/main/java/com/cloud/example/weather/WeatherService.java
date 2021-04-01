@@ -11,8 +11,4 @@ public class WeatherService {
     public Weather findByCity(String city) {
         return weatherRepository.findByCity(city);
     }
-
-    public void add(String city, int temperature) {
-        weatherRepository.save(new Weather(city, temperature));
-    }
 }
