@@ -1,4 +1,4 @@
-package com.cloud.example;
+package com.cloud.example.weather;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
