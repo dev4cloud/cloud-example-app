@@ -16,6 +16,8 @@ extra["junitVersion"] = "5.4.2"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    runtimeOnly("com.h2database:h2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${project.extra["junitVersion"]}")
     testImplementation("org.junit.jupiter:junit-jupiter-params:${project.extra["junitVersion"]}")
     testImplementation("org.junit.jupiter:junit-jupiter:${project.extra["junitVersion"]}")
