@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Merge Page</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<script type="text/javascript">
+function loadDatabase(){
+ $.ajax({    //query the database
+    type: "GET",
+    url: "https://game-of-life-backend.eu-de.mybluemix.net/v2/gol",
+    //data: 'page='+url,  //with the page number as a parameter
+    dataType: "json",   //expect html to be returned
+    success: function(msg){
+        console.log(msg)
+        var html = ""
+        for(var i=0; i<msg.length; ++i){
+            html += ("<b>"+msg[i].title+"</b>")
+            html += ("<p>"+msg[i].body+"</p>")
+        }
+        $('#database').html(html);    //load the returned html into pageContet
+    }
+ });
+}
+$(document).ready(function(){
+
+ $.ajax({
+    type: "GET",
+    url: "http://localhost:8080/weather?city=Stuttgart",
+    dataType: "json",   //expect html to be returned
+    success: function(msg){
+        var weather = msg;
+        console.log(weather)
+        var data = "City: " + weather.city + ", Temperature: " + weather.temperature;
+        $('#weather').html(data);    //load the returned html into pageContet
+    }
+ });
+
+$.ajax({
+    type: "GET",
+    url: "http://localhost:8080/prio",
+    dataType: "json",   //expect html to be returned
+    success: function(msg){
+        var todos = msg;
+        console.log(weather)
+        var data = "";
+        for (var i = 0; i < todos.length; i++) {
+            data += "<p>" + todos[i].title + "<br/>" + todos[i].description + "</p>"
+        }
+
+        $('#priority').html(data);    //load the returned html into pageContet
+    }
+ });
+
+
+});
+
+function writeToTheDatabase(){
+
+ var data = {
+  "body": "my body  that is very special",
+  "title": "This is my new written title"
+ };
+ $.ajax({    //query the database
+    type: "POST",
+    url: "https://game-of-life-backend.eu-de.mybluemix.net/v2/gol",
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    data: JSON.stringify(data),
+    success: loadDatabase
+ });
+}
+
+
+
+</script>
+
+<h2>Here we will merge two applications</h2>
+
+<div id="weather">
+</div>
+
+<hr></hr>
+
+<div id="priority">
+</div>
+
+
+</body>
+</html>
