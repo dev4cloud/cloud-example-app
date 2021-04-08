@@ -44,7 +44,7 @@ $.ajax({
     dataType: "json",   //expect html to be returned
     success: function(msg){
         var todos = msg;
-        console.log(weather)
+        console.log(todos)
         var data = "";
         for (var i = 0; i < todos.length; i++) {
             data += "<p>" + todos[i].title + "<br/>" + todos[i].description + "</p>"
