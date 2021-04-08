@@ -54,6 +54,22 @@ $.ajax({
     }
  });
 
+ $.ajax({
+    type: "GET",
+    url: "http://localhost:8080/tasks",
+    dataType: "json",   //expect html to be returned
+    success: function(msg){
+        var tasks = msg;
+        console.log(tasks)
+        var data = "";
+        for (var i = 0; i < tasks.length; i++) {
+            data += "<p>" + tasks[i].id + "<br/>" + tasks[i].title + "<br/>" + tasks[i].description + "<br/>" + tasks[i].priority + "</p>"
+        }
+
+        $('#tasks').html(data);    //load the returned html into pageContet
+    }
+ });
+
 
 });
 
@@ -85,6 +101,11 @@ function writeToTheDatabase(){
 <hr></hr>
 
 <div id="priority">
+</div>
+
+<hr></hr>
+
+<div id="tasks">
 </div>
 
 
