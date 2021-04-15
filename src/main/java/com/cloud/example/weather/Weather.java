@@ -2,8 +2,10 @@ package com.cloud.example.weather;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "weather")
 public class Weather {
     @Id
     String city;

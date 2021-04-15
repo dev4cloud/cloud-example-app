@@ -3,9 +3,11 @@ package com.cloud.example.task;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tasks")
 public class Task {
 
     public Task() {

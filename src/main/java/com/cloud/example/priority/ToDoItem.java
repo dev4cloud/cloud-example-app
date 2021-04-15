@@ -2,9 +2,11 @@ package com.cloud.example.priority;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name = "todos")
 public class ToDoItem {
     @Id
     private String id;
