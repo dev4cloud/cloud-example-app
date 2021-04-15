@@ -14,8 +14,9 @@ public class DataSourceConfig {
         String dbName = System.getenv("APP_DATABASE");
         String dbUsername = System.getenv("APP_DATABASE_USER");
         String dbPassword = System.getenv("APP_DATABASE_PASSWORD");
+        String dbUrl = System.getenv("APP_DATABASE_URL");
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url("jdbc:postgresql://dbaas903.hyperp-dbaas.cloud.ibm.com:29050/" + dbName);
+        dataSourceBuilder.url("jdbc:postgresql://" + dbUrl + "/" + dbName);
         dataSourceBuilder.username(dbUsername);
         dataSourceBuilder.password(dbPassword);
         return dataSourceBuilder.build();
