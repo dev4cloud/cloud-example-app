@@ -1,0 +1,9 @@
+---
+applications:
+  - name: myCloudApp
+    buildpack: java_buildpack
+    path: ./build/libs/cloud-example-app-0.1.0.jar
+    memory: 1024M
+    domain: eu-de.cf.appdomain.cloud
+    timeout: 80
+    disk_quota: 512M
