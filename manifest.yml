@@ -7,3 +7,5 @@ applications:
     domain: eu-de.cf.appdomain.cloud
     timeout: 80
     disk_quota: 512M
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ "jre": { version: 11.+ } }'
