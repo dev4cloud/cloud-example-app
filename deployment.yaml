@@ -6,34 +6,33 @@ spec:
   selector:
     matchLabels:
       app: cloud-example-app
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
         app: cloud-example-app
     spec:
       containers:
-  containers:
-    - name: cloud-app
-      env:
-        - name: APP_DATABASE
-          value: jsph
-        - name: APP_DATABASE_USER
-          value: admin
-        - name: APP_DATABASE_PASSWORD
-          value: 53fAIydDyiXIO3SEW1ar
-        - name: APP_DATABASE_URL
-          value: dbaas903.hyperp-dbaas.cloud.ibm.com:29050
-      image: jsgette/cloud-example-app:0.1.0
-      ports:
-        - containerPort: 8080
-          name: server
-      imagePullPolicy: Always
-      tty: true
-      resources:
-        requests:
-          memory: 1Gi
-          cpu: 500m
-        limits:
-          memory: 1Gi
-          cpu: 500m
+      - name: cloud-app
+        env:
+          - name: APP_DATABASE
+            value: jsph
+          - name: APP_DATABASE_USER
+            value: admin
+          - name: APP_DATABASE_PASSWORD
+            value: 53fAIydDyiXIO3SEW1ar
+          - name: APP_DATABASE_URL
+            value: dbaas903.hyperp-dbaas.cloud.ibm.com:29050
+        image: jsgette/cloud-example-app:0.1.0
+        ports:
+          - containerPort: 8080
+            name: server
+        imagePullPolicy: Always
+        tty: true
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: 500m
+          limits:
+            memory: 1Gi
+            cpu: 500m
