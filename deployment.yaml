@@ -16,7 +16,7 @@ spec:
       - name: cloud-app
         env:
           - name: APP_DATABASE
-            value: jsph
+            value: postgres
           - name: APP_DATABASE_USER
             value: admin
           - name: APP_DATABASE_PASSWORD
