@@ -18,9 +18,15 @@ spec:
           - name: APP_DATABASE
             value: postgres
           - name: APP_DATABASE_USER
-            value: admin
+            valueFrom:
+              secretKeyRef:
+                name: db-user
+                key: APP_DATABASE_USER
           - name: APP_DATABASE_PASSWORD
-            value: 53fAIydDyiXIO3SEW1ar
+            valueFrom:
+              secretKeyRef:
+                name: db-password
+                key: APP_DATABASE_PASSWORD
           - name: APP_DATABASE_URL
             value: dbaas903.hyperp-dbaas.cloud.ibm.com:30180
         image: jsgette/cloud-example-app:0.1.0
@@ -31,8 +37,8 @@ spec:
         tty: true
         resources:
           requests:
-            memory: 1Gi
-            cpu: 500m
+            memory: 512Mi
+            cpu: 250m
           limits:
-            memory: 1Gi
-            cpu: 500m
+            memory: 512Mi
+            cpu: 250m
