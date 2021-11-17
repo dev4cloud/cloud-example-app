@@ -29,7 +29,7 @@ spec:
                 key: APP_DATABASE_PASSWORD
           - name: APP_DATABASE_URL
             value: dbaas903.hyperp-dbaas.cloud.ibm.com:30180
-        image: jsgette/cloud-example-app:0.1.0
+        image: jsgette/cloud-example-app:0.2.0
         ports:
           - containerPort: 8080
             name: server
