@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: cloud-example-app
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -20,15 +20,15 @@ spec:
           - name: APP_DATABASE_USER
             valueFrom:
               secretKeyRef:
-                name: db-user
-                key: APP_DATABASE_USER
+                name: db-credentials
+                key: db-user
           - name: APP_DATABASE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: db-password
-                key: APP_DATABASE_PASSWORD
+                name: db-credentials
+                key: db-password
           - name: APP_DATABASE_URL
-            value: dbaas903.hyperp-dbaas.cloud.ibm.com:30180
+            value: postgres:5432
         image: jsgette/cloud-example-app:0.2.0
         ports:
           - containerPort: 8080
