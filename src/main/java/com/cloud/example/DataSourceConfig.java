@@ -16,9 +16,10 @@ public class DataSourceConfig {
         String dbPassword = System.getenv("APP_DATABASE_PASSWORD");
         String dbUrl = System.getenv("APP_DATABASE_URL");
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url("jdbc:postgresql://" + dbUrl + "/" + dbName);
+        dataSourceBuilder.url("jdbc:db2://" + dbUrl + "/" + dbName);
         dataSourceBuilder.username(dbUsername);
         dataSourceBuilder.password(dbPassword);
+        dataSourceBuilder.driverClassName("com.ibm.db2.jcc.DB2Driver");
         return dataSourceBuilder.build();
     }
 }
