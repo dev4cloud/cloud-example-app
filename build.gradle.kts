@@ -6,7 +6,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 group = "org.example"
-version = "0.2.0"
+version = "0.2.1"
 
 repositories {
     mavenCentral()

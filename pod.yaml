@@ -9,10 +9,14 @@ spec:
     - name: cloud-app
       env:
         - name: APP_DATABASE
-          value: postgres
+          value: bludb:sslConnection=true;
         - name: APP_DATABASE_URL
-          value: dbaas903.hyperp-dbaas.cloud.ibm.com:30180
-      image: jsgette/cloud-example-app:0.1.0
+          value: 54a2f15b-5c0f-46df-8954-7e38e612c2bd.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud:32733
+        - name: APP_DATABASE_PASSWORD
+          value: password 
+        - name: APP_DATABASE_USER
+          value: user 
+      image: icr.io/hdm-stuttgart/cloud-example-app:0.2.1
       ports:
         - containerPort: 8080
           name: server
